@@ -28,6 +28,7 @@ module GithubApi
               owner {
                 login
               }
+              updatedAt
             }
           }
         }

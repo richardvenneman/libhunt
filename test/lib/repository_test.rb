@@ -10,6 +10,7 @@ class RepositoryTest < Test::Unit::TestCase
     assert_equal "puppy_love", repository.name
     assert_equal "rails project to match users with dog breeds", repository.description
     assert_equal "KristinHannah", repository.author
+    assert_equal DateTime.parse("2019-11-03T20:30:30.187Z"), repository.updated_at
     assert_equal "GitHub", repository.source
   end
 
@@ -21,6 +22,7 @@ class RepositoryTest < Test::Unit::TestCase
     assert_equal "gp-test-2230", repository.name
     assert_equal "ML exp project", repository.description
     assert_equal "mlaPassau", repository.author
+    assert_equal DateTime.parse("2019-11-03T21:30:31.887Z"), repository.updated_at
     assert_equal "GitLab", repository.source
   end
 
@@ -35,7 +37,8 @@ class RepositoryTest < Test::Unit::TestCase
       "owner" => {
         "__typename" => "User",
         "login" => "KristinHannah"
-      }
+      },
+      "updatedAt" => "2019-11-03T20:30:30.187Z"
     }
   end
 
