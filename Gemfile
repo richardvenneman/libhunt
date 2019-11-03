@@ -5,6 +5,7 @@ gem 'sinatra', '~> 2.0'
 gem 'sinatra-contrib', '~> 2.0'
 
 gem 'graphql-client', '~> 0.16'
+gem 'http', '~> 4.2'
 
 group :test do
   gem 'rack-test', '~> 1.1'

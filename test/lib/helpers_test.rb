@@ -1,8 +1,24 @@
-require_relative 'test_helper'
-require_relative '../gitlab'
+require_relative '../test_helper'
+require_relative '../../lib/helpers'
 
-class GitlabTest < Test::Unit::TestCase
-  def test_normalize_response
+class HelpersTest < Test::Unit::TestCase
+  include Helpers
+
+  def test_normalize_github_response
+    expected = [
+      {
+        "url" => "https://github.com/KristinHannah/puppy_love",
+        "name" => "puppy_love",
+        "description" => "rails project to match users with dog breeds",
+        "author" => "KristinHannah",
+        "source" => "GitHub"
+      }
+    ]
+
+    assert_equal expected, normalize_github_response(github_query_stub)
+  end
+
+  def test_normalize_gitlab_response
     normalized_response = [
       {
         "url" => "https://gitlab.com/mlaPassau/gp-test-2230",
@@ -13,12 +29,35 @@ class GitlabTest < Test::Unit::TestCase
       }
     ]
 
-    assert_equal normalized_response, Gitlab.normalize_response(query_stub)
+    assert_equal normalized_response, normalize_gitlab_response(query_stub)
   end
 
   private
 
-  def query_stub
+  def github_query_stub
+    {
+      "data" => {
+        "search" => {
+          "edges" => [
+            {
+              "node" => {
+                "__typename" => "Repository",
+                "url" => "https://github.com/KristinHannah/puppy_love",
+                "name" => "puppy_love",
+                "description" => "rails project to match users with dog breeds",
+                "owner" => {
+                  "__typename" => "User",
+                  "login" => "KristinHannah"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  end
+
+  def gitlab_query_stub
     [
       {
         "id" => 15154344,
