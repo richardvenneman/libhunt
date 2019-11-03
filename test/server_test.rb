@@ -9,7 +9,7 @@ class ServerTest < Test::Unit::TestCase
   end
 
   def test_it_says_hello_world
-    get '/repositories/'
+    get '/libraries/'
     assert last_response.ok?
     assert_equal 'Hello, world', last_response.body
   end

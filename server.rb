@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 
-get '/repositories/' do
+get '/libraries/' do
   'Hello, world'
 end
