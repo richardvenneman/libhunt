@@ -7,7 +7,7 @@ module Github
       result = Github::Api::Client.query(
         Github::Query,
         variables: {
-          query: "language:Ruby sort:updated",
+          query: "language:Ruby sort:updated-desc",
           limit: 1
         }
       )

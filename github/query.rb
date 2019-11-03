@@ -8,6 +8,9 @@ module Github
               url
               name
               description
+              owner {
+                login
+              }
             }
           }
         }
