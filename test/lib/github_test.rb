@@ -7,14 +7,13 @@ class GithubApiTest < Test::Unit::TestCase
   end
 
   def test_query
-    result = GithubApi::Client.query(
-      GithubApi::Query,
-      variables: {
-        query: "language:Ruby sort:updated-desc",
-        limit: 1
-      }
-    )
+    assert_kind_of GraphQL::Client::OperationDefinition, GithubApi::Query
+  end
 
-    assert_kind_of GraphQL::Client::Response, result
+  def test_get_repositories
+    response = GithubApi.get_repositories
+
+    assert_kind_of Array, response
+    assert_kind_of Repository, response[0]
   end
 end
