@@ -8,9 +8,23 @@ class ServerTest < Test::Unit::TestCase
     Sinatra::Application
   end
 
-  def test_it_says_hello_world
+  def test_it_returns_json
     get '/libraries/'
     assert last_response.ok?
-    assert_equal 'Hello, world', last_response.body
+    assert_equal "application/json", last_response.headers['Content-Type']
+  end
+
+  def test_returns_normalized_json
+    get '/libraries/'
+
+    data = JSON.parse(last_response.body)
+    assert_equal Array, data.class
+
+    library = data.first
+    assert_kind_of String, library["url"]
+    assert_kind_of String, library["name"]
+    assert_kind_of String, library["description"]
+    assert_kind_of String, library["author"]
+    assert_kind_of String, library["source"]
   end
 end

@@ -2,6 +2,8 @@ require_relative "github/api"
 require_relative "github/query"
 
 module Github
+  QUERY_LIMIT = 50
+
   def self.normalize_response(response)
     response["data"]["search"]["edges"].collect do |edge|
       edge["node"].slice("url", "name", "description").merge(
