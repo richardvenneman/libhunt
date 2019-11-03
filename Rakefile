@@ -1,7 +1,7 @@
 task "graphql:dump_schemas" do
-  require_relative "graphql/clients/github_client"
+  require_relative "github"
 
-  GraphQL::Client.dump_schema(GHAPI::HTTP, GHAPI::SCHEMA_PATH)
+  GraphQL::Client.dump_schema(Github::Api::HTTP, Github::Api::SCHEMA_PATH)
 
   puts "Succesfully dumped GitHub API schema"
 end
