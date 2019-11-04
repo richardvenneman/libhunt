@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../test_helper'
-require_relative '../../lib/github'
-require_relative '../../lib/gitlab'
-require_relative '../../lib/repository_collection'
+require_relative '../../test_helper'
+require_relative '../../../lib/apis/github_api'
+require_relative '../../../lib/apis/gitlab_api'
+require_relative '../../../lib/models/repository_collection'
 
 class RepositoryCollectionTest < Test::Unit::TestCase
   def test_sorted

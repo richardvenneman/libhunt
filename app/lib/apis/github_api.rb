@@ -2,8 +2,8 @@
 
 require 'graphql/client'
 require 'graphql/client/http'
-require_relative 'repository'
-require_relative 'api_timeout_error'
+require_relative '../models/repository'
+require_relative 'timeout_error'
 
 module GithubApi
   API_ENDPOINT = 'https://api.github.com/graphql'

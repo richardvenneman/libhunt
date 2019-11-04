@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../test_helper'
-require_relative '../../lib/repository'
+require_relative '../../test_helper'
+require_relative '../../../lib/models/repository'
 
 class RepositoryTest < Test::Unit::TestCase
   def test_from_github

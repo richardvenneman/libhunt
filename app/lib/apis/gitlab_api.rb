@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'http'
-require_relative 'repository'
-require_relative 'api_timeout_error'
+require_relative '../models/repository'
+require_relative 'timeout_error'
 
 module GitlabApi
   API_ENDPOINT = 'https://gitlab.com/api/v4'

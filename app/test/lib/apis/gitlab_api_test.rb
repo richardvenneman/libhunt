@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../test_helper'
-require_relative '../../lib/gitlab'
+require_relative '../../test_helper'
+require_relative '../../../lib/apis/gitlab_api'
 
 class GitlabApiTest < Test::Unit::TestCase
   def test_get_repositories
