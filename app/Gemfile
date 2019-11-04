@@ -1,8 +1,11 @@
+ruby '2.6.3'
+
 source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0'
 gem 'sinatra', '~> 2.0'
 gem 'sinatra-contrib', '~> 2.0'
+gem 'thin', '~> 1.7'
 
 gem 'graphql-client', '~> 0.16'
 gem 'http', '~> 4.2'
