@@ -10,7 +10,7 @@ module GithubApi
   ACCESS_TOKEN = 'b6b745e87a6eccf3abe963cf345f289a0e16a0ff'
   SCHEMA_PATH = 'tmp/schemas/github.json'
   TIMEOUT = 30
-  LIMIT = 1
+  LIMIT = 50
 
   HTTP = GraphQL::Client::HTTP.new(API_ENDPOINT) do
     def connection

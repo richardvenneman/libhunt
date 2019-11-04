@@ -7,7 +7,7 @@ require_relative 'api_timeout_error'
 module GitlabApi
   API_ENDPOINT = 'https://gitlab.com/api/v4'
   TIMEOUT = 30
-  LIMIT = 1
+  LIMIT = 50
 
   def self.get_repositories(language = 'Ruby')
     response = HTTP.timeout(read: TIMEOUT)
