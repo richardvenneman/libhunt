@@ -1,0 +1,2 @@
+class ApiTimeoutError < StandardError
+end
