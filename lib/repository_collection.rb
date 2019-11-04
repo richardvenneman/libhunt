@@ -1,6 +1,6 @@
 class RepositoryCollection
-  def initialize(repositories)
-    @repositories = repositories
+  def initialize(*repositories)
+    @repositories = repositories.flatten
   end
 
   def sorted

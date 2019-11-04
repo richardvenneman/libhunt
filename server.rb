@@ -18,5 +18,5 @@ get '/libraries/' do
   github_repositories = GithubApi.get_repositories(language)
   gitlab_repositories = GitlabApi.get_repositories(language)
 
-  json RepositoryCollection.new(github_repositories + gitlab_repositories).sorted
+  json RepositoryCollection.new(github_repositories, gitlab_repositories).sorted
 end
