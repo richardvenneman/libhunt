@@ -2,7 +2,7 @@
 
 require 'graphql/client'
 require 'graphql/client/http'
-require_relative '../models/repository'
+require_relative '../models/github_repository'
 require_relative 'timeout_error'
 
 module GithubApi
@@ -56,7 +56,7 @@ module GithubApi
     )
 
     response.to_h['data']['search']['edges'].collect do |edge|
-      Repository.from_github(edge['node'])
+      GithubRepository.new(edge['node'])
     end
   rescue Net::ReadTimeout
     raise ApiTimeoutError
