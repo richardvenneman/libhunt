@@ -2,17 +2,14 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader' if development?
 
-require_relative 'github'
+require_relative 'lib/github'
+require_relative 'lib/gitlab'
+require_relative 'lib/repository_collection'
 
 get '/libraries/' do
   language = params[:language] || 'Ruby'
-  response = Github::Api::Client.query(
-    Github::Query,
-    variables: {
-      query: "language:#{language} sort:updated-desc",
-      limit: Github::QUERY_LIMIT
-    }
-  )
+  github_repositories = GithubApi.get_repositories(language)
+  gitlab_repositories = GitlabApi.get_repositories(language)
 
-  json Github.normalize_response(response.to_h)
+  json RepositoryCollection.new(github_repositories + gitlab_repositories).sorted
 end
