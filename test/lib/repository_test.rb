@@ -26,6 +26,20 @@ class RepositoryTest < Test::Unit::TestCase
     assert_equal "GitLab", repository.source
   end
 
+  def test_to_h
+    repository = Repository.from_github(github_repository)
+    hash = {
+      author: "KristinHannah",
+      description: "rails project to match users with dog breeds",
+      name: "puppy_love",
+      source: "GitHub",
+      updated_at: "2019-11-03T20:30:30.187+00:00",
+      url: "https://github.com/KristinHannah/puppy_love"
+    }
+
+    assert_equal(hash, repository.to_h)
+  end
+
   private
 
   def github_repository
