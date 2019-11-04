@@ -1,7 +1,9 @@
-require "graphql/client"
-require "graphql/client/http"
-require_relative "repository"
-require_relative "api_timeout_error"
+# frozen_string_literal: true
+
+require 'graphql/client'
+require 'graphql/client/http'
+require_relative 'repository'
+require_relative 'api_timeout_error'
 
 module GithubApi
   API_ENDPOINT = 'https://api.github.com/graphql'
@@ -17,7 +19,7 @@ module GithubApi
       end
     end
 
-    def headers(context)
+    def headers(_context)
       { "Authorization": "bearer #{ACCESS_TOKEN}" }
     end
   end
@@ -53,8 +55,8 @@ module GithubApi
       }
     )
 
-    response.to_h["data"]["search"]["edges"].collect do |edge|
-      Repository.from_github(edge["node"])
+    response.to_h['data']['search']['edges'].collect do |edge|
+      Repository.from_github(edge['node'])
     end
   rescue Net::ReadTimeout
     raise ApiTimeoutError

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RepositoryCollection
   def initialize(*repositories)
     @repositories = repositories.flatten

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader' if development?
@@ -10,7 +12,7 @@ require_relative 'lib/api_timeout_error'
 set :show_exceptions, :after_handler
 
 error ApiTimeoutError do
-  json({ message: "There was a problem fetching data from external sources." })
+  json(message: 'There was a problem fetching data from external sources.')
 end
 
 get '/libraries/' do
