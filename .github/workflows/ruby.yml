@@ -19,3 +19,5 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
