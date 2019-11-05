@@ -25,8 +25,8 @@ class ServerTest < Test::Unit::TestCase
     library = data.first
     assert_kind_of String, library['url']
     assert_kind_of String, library['name']
-    assert_kind_of String, library['description']
     assert_kind_of String, library['author']
     assert_kind_of String, library['source']
+    assert library.has_key?('description')
   end
 end
