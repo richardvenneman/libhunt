@@ -1,6 +1,5 @@
-# libhunt
+# libhunt ![](https://github.com/richardvenneman/libhunt/workflows/Ruby/badge.svg)
  Explore the latest updated GitHub / GitLab projects
- ![](https://github.com/richardvenneman/libhunt/workflows/ruby/badge.svg)
 
 ## Prerequisites
 
