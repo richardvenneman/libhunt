@@ -9,7 +9,7 @@ Rake::TestTask.new do |task|
 end
 
 task 'graphql:dump_schemas' do
-  require_relative 'github'
+  require_relative 'lib/apis/github_api'
 
   GraphQL::Client.dump_schema(GithubApi::HTTP, GithubApi::SCHEMA_PATH)
 
