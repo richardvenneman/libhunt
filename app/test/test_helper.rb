@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-ENV['APP_ENV'] = 'test'
+require 'bundler'
+Bundler.setup(:default, :test)
 
 require 'rack/test'
-require 'test/unit'
+require 'minitest/autorun'

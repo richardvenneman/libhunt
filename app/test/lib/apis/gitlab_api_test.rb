@@ -3,7 +3,7 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/apis/gitlab_api'
 
-class GitlabApiTest < Test::Unit::TestCase
+class GitlabApiTest < Minitest::Test
   def test_get_repositories
     response = GitlabApi.get_repositories
 

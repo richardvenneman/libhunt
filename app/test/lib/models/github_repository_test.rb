@@ -3,7 +3,7 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/models/github_repository'
 
-class GithubRepositoryTest < Test::Unit::TestCase
+class GithubRepositoryTest < Minitest::Test
   def test_attributes
     repository = GithubRepository.new(data)
 

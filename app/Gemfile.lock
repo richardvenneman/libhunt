@@ -93,6 +93,7 @@ DEPENDENCIES
   dotenv (~> 2.7)
   graphql-client (~> 0.16)
   http (~> 4.2)
+  minitest (~> 5.13)
   rack-test (~> 1.1)
   rake (~> 13.0)
   rubocop (~> 0.76)

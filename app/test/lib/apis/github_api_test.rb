@@ -3,7 +3,7 @@
 require_relative '../../test_helper'
 require_relative '../../../lib/apis/github_api'
 
-class GithubApiTest < Test::Unit::TestCase
+class GithubApiTest < Minitest::Test
   def test_client
     assert_kind_of GraphQL::Client, GithubApi::Client
   end
