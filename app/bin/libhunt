@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+require 'json'
+
+require_relative '../lib/apis/github_api'
+require_relative '../lib/apis/gitlab_api'
+require_relative '../lib/apis/timeout_error'
+require_relative '../lib/models/repository_collection'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: libhunt.rb [options]"
+
+  opts.on("-l", "--language", "Only select repositories written in specified language") do |language|
+    options[:langauge] = language
+  end
+end.parse!
+
+begin
+  language = options[:language] || 'Ruby'
+  github_repositories = GithubApi.get_repositories(language)
+  gitlab_repositories = GitlabApi.get_repositories(language)
+
+  puts JSON.pretty_generate(RepositoryCollection.new(github_repositories, gitlab_repositories).sorted)
+rescue ApiTimeoutError
+  puts 'ERROR: There was a problem fetching data from external sources.'
+end

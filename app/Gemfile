@@ -12,7 +12,9 @@ gem 'thin', '~> 1.7'
 gem 'graphql-client', '~> 0.16'
 gem 'http', '~> 4.2'
 
-gem 'rubocop', '~> 0.76', require: false
+group :development do
+  gem 'rubocop', '~> 0.76', require: false
+end
 
 group :test do
   gem 'rack-test', '~> 1.1'
