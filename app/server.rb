@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'config/environment'
+
 require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader' if development?
-
-require_relative 'lib/apis/github_api'
-require_relative 'lib/apis/gitlab_api'
-require_relative 'lib/apis/timeout_error'
-require_relative 'lib/models/repository_collection'
 
 set :show_exceptions, :after_handler
 

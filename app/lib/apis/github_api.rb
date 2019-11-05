@@ -7,7 +7,6 @@ require_relative 'timeout_error'
 
 module GithubApi
   API_ENDPOINT = 'https://api.github.com/graphql'
-  ACCESS_TOKEN = 'b6b745e87a6eccf3abe963cf345f289a0e16a0ff'
   SCHEMA_PATH = 'tmp/schemas/github.json'
   TIMEOUT = 30
   LIMIT = 50
@@ -20,7 +19,7 @@ module GithubApi
     end
 
     def headers(_context)
-      { "Authorization": "bearer #{ACCESS_TOKEN}" }
+      { "Authorization": "bearer #{ENV['GITHUB_ACCESS_TOKEN']}" }
     end
   end
 

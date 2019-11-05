@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rake/testtask'
+require 'dotenv/tasks'
 
 task default: 'test'
 
@@ -8,10 +9,12 @@ Rake::TestTask.new do |task|
   task.pattern = 'test/**/*_test.rb'
 end
 
-task 'graphql:dump_schemas' do
-  require_relative 'lib/apis/github_api'
+namespace :graphql do
+  task dump_schemas: :dotenv do
+    require_relative 'lib/apis/github_api'
 
-  GraphQL::Client.dump_schema(GithubApi::HTTP, GithubApi::SCHEMA_PATH)
+    GraphQL::Client.dump_schema(GithubApi::HTTP, GithubApi::SCHEMA_PATH)
 
-  puts 'Succesfully dumped GitHub API schema'
+    puts 'Succesfully dumped GitHub API schema'
+  end
 end
